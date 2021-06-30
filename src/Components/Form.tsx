@@ -4,7 +4,7 @@ import {
   Grid,
   FormLabel,
   makeStyles,
-  Button
+  useMediaQuery
 } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
@@ -41,7 +41,17 @@ const useStyles = makeStyles(() => ({
     color: "grey",
     borderRadius: 2.5,
     marginTop: 8,
-    width: 264,
+    width:265,
+    outline: 0,
+  },
+  selectInSmallScreen: {
+     background: '#fff',
+    border: "1.5px solid #e7e7e7",
+    padding: "0.5rem 0.5rem",
+    color: "grey",
+    borderRadius: 2.5,
+    marginTop: 8,
+    width: 290,
     outline: 0,
   },
   formGroup: {
@@ -69,6 +79,7 @@ const useStyles = makeStyles(() => ({
 
 const Form = () => {
   const classes = useStyles();
+  console.log("MediaQuery: ",useMediaQuery('(max-width: 375px)'));
   return (
     <Container className={classes.container} maxWidth="sm">
       <Grid container>
@@ -79,22 +90,22 @@ const Form = () => {
       </Grid>
 
       <Grid container spacing={5} className={classes.formGroup}>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Source Supplier </FormLabel>
           <input className={classes.textBox} />
         </Grid>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Phone </FormLabel>
           <input className={classes.textBox} placeholder="### ### ###" />
         </Grid>
       </Grid>
 
       <Grid container spacing={5}>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Purchased By: </FormLabel>
           <input className={classes.textBox} />
         </Grid>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}>
             {" "}
             Confidental clue Page No{" "}
@@ -121,10 +132,10 @@ const Form = () => {
         </Grid>
 
         <Grid container spacing={5}>
-          <Grid item lg={6} xl={6} sm={6} xs={6}>
+          <Grid item lg={6} xl={6} sm={6} xs={12} >
             <input className={classes.textBox} type="text" placeholder="City" />
           </Grid>
-          <Grid item lg={6} xl={6} sm={6} xs={6} className={ classes.addressTextBox}>
+          <Grid item lg={6} xl={6} sm={6} xs={12} className={ classes.addressTextBox}>
             <input
               className={classes.textBox}
               type="text"
@@ -134,16 +145,16 @@ const Form = () => {
         </Grid>
 
         <Grid container spacing={5}>
-          <Grid item lg={6} xl={6} sm={6} xs={6}>
+          <Grid item lg={6} xl={6} sm={6} xs={12}>
             <input
               className={classes.textBox}
               type="text"
               placeholder="Postal / Zip Code"
             />
           </Grid>
-          <Grid item lg={6} xl={6} sm={6} xs={6}>
+          <Grid item lg={6} xl={6} sm={6} xs={12}>
             <select
-              className={classes.select}
+              className={useMediaQuery('(max-width: 375px)')? classes.selectInSmallScreen:classes.select}
             >
                 <option value={1}>Romania</option> 
             </select>
@@ -152,33 +163,33 @@ const Form = () => {
       </Grid>
 
         <Grid container spacing={5} className={classes.formGroup}>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Clasification No </FormLabel>
           <input className={classes.textBox} />
         </Grid>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Author Marks </FormLabel>
           <input className={classes.textBox} />
         </Grid>
       </Grid>
 
         <Grid container spacing={5} className={classes.formGroup}>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Usability Condition </FormLabel>
           <input className={classes.textBox} />
         </Grid>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Entry Date </FormLabel>
           <input className={classes.date} type="date" />
         </Grid>
       </Grid>
 
         <Grid container spacing={5} className={classes.formGroup}>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> Publish Place </FormLabel>
           <input className={classes.textBox} />
         </Grid>
-        <Grid item lg={6} xl={6} sm={6} xs={6}>
+        <Grid item lg={6} xl={6} sm={6} xs={12}>
           <FormLabel className={classes.label}> No of Copies </FormLabel>
           <input className={classes.textBox} />
         </Grid>
